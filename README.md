@@ -1,5 +1,5 @@
 # 12345
-An open-source LLM app development platform. The 12345 technology stack consists of Golang, Flutter, and JavaScript. It provides a highly versatile AI agent design framework.
+An open-source LLM app development platform. The 12345 technology stack consists of Golang, Flutter, and JavaScript. It provides a highly versatile AI agent design framework.It supports almostly all platform, Desktop(windows mac linux)、web、android、ios.
 
 ### The fully open-source code is about to be released. Are you looking forward to it? I will as soon as possible to finish the prepare work. Before this, let's take a look at its general features.
 
@@ -11,7 +11,11 @@ The main interface :
 ![main](https://store.12345.blue/agent01/nh90zg0tx5ed1dzppgfs4na2w00w895x_g1.png)
 
 And, you can change the theme.  
-![main](https://store.12345.blue/agent01/nh90zg0tx5ed1e0430daoa43803iurp4_g4.png)
+![main](https://store.12345.blue/agent01/nh90zg0tx5ed1e0430daoa43803iurp4_g4.png)  
+
+Mobile.  
+![main](https://store.12345.blue/agent01/nh90zg0tx5ed1etygr7g5wl3g0po1ewl_g6.png)  
+
 
 **2. Tools**:  
 Secrets、LLM、Bots、plugins. From the Tools page, you can share your LLMs/bots/plugins to others.
