@@ -1,0 +1,1 @@
+flutter clean && flutter build web --web-renderer canvaskit --no-tree-shake-icons --release && node hash_js.js

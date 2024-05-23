@@ -1,0 +1,24 @@
+// ==========================================================================
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
+// ==========================================================================
+
+syntax = "proto3";
+
+package pbentity;
+
+option go_package = "12345/api/pbentity";
+
+import "google/protobuf/timestamp.proto";
+
+message CostDetail {
+    string                    Id        = 1   ; //   
+    string                    GroupId   = 2   ; //   
+    string                    OrgId     = 3   ; //   
+    string                    Uid       = 4   ; //   
+    string                    Tid       = 5   ; //   
+    string                    Sid       = 6   ; //   
+    string                    MsgId     = 7   ; //   
+    int64                     Cost      = 8   ; //   
+    int64                     Tokens    = 9   ; //   
+    google.protobuf.Timestamp CreatedAt = 10  ; //   
+}

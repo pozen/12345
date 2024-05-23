@@ -1,0 +1,8 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  dao:
+    - link:     "pgsql:root:123456@tcp(localhost:26257)/test1"
+      tables:   "users"
+      jsonCase: "CamelLower"

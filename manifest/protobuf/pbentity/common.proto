@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package pbentity;
+
+option go_package = "12345/api/pbentity";
+
+import "google/protobuf/timestamp.proto";
+import "pbentity/message.proto";
+
+
+enum Role {
+    RoleNone = 0;
+    RoleSystem = 1;
+    RoleUser = 2;
+    RoleAssistant = 3;
+}
+
+enum MsgType {
+    MsgTypeNone = 0; // 
+    MsgTypeText = 1;
+    MsgTypeImage = 2;
+    MsgTypeAudio = 3;
+    MsgTypeVideo = 4;
+    MsgTypeFile = 5;
+}
+
+
+// 翻译上面的结构定义为protobuf
+message ModelAnswer {
+    string                    Answer     = 1   ; //   
+    int32                     Score      = 2   ; //   
+    string                    Error      = 3   ; //   
+    int32                     TokenCount = 4   ; //   
+    double                    TokenPrice = 5   ; //   
+}
+
+message BotSetting {
+    string                    ModelId    = 1   ; //   
+    string                    Prompt     = 2   ; //   
+    int32                     MaxHistoryLen = 3   ; //   
+}
+
+message Session {
+    string                    Q          = 1   ; //   
+    repeated pbentity.Message          HistoryMsgs = 2   ; //  
+    string                    SId        = 3   ; 
+    bool                      UseStream  = 4   ;
+}

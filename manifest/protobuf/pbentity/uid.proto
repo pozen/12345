@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pbentity;
+
+option go_package = "12345/api/pbentity";
+
+import "google/protobuf/timestamp.proto";
+
+message UID {
+    string                    Id         = 1   ; //   
+    string                    Org        = 2   ; //   
+}

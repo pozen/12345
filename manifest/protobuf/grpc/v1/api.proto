@@ -1,0 +1,199 @@
+// protoc --go_out=plugins=grpc:. *.proto
+
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "12345/api/grpc/v1";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "pbentity/common.proto";
+import "pbentity/message.proto";
+import "pbentity/dialog.proto";
+import "pbentity/tool.proto";
+import "pbentity/uprofile.proto";
+import "pbentity/account.proto";
+
+service ApiService {
+    // tool APIs
+    rpc CreateTool(CreateToolRequest) returns (CreateToolResponse);
+    rpc GetToolList(GetToolListRequest) returns (GetToolListResponse);
+    rpc DelTools(DelToolsRequest) returns (DelToolsResponse);
+    rpc CallTool(CallToolRequest) returns (CallToolResponse);
+
+    // store APIs
+    rpc PreSignedUrl(PreSignedUrlRequest) returns (PreSignedUrlResponse);
+
+    // dialog APIs
+    rpc CreateDialog(AddDialogRequest) returns (AddDialogResponse);
+    rpc GetDialogList(GetDialogListRequest) returns (GetDialogListResponse);
+    rpc GetDialog(GetDialogDetailRequest) returns (GetDialogDetailResponse);
+    rpc DelDialog(DelDialogRequest) returns (DelDialogResponse);
+    rpc GetDialogMsgList(GetDialogMsgListRequest) returns (GetDialogMsgListResponse);
+    rpc AddDialogMsg(AddDialogMsgRequest) returns (AddDialogMsgResponse);
+
+    // profile
+    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse);
+    rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse);
+
+    // account
+    rpc GetAccount(GetAccountRequest) returns (GetAccountResponse);
+}
+
+message ErrCode {
+    int64 Code = 1;
+    string Msg = 2;
+}
+
+message CommonRes {
+    ErrCode EC = 1;
+}
+
+// tool ------------------------------------------------------------------------
+message CreateToolRequest {
+    pbentity.Tool tool = 1;
+}
+
+message CreateToolResponse {
+    ErrCode EC = 1;
+    pbentity.Tool tool = 2;
+}
+
+message GetToolListRequest {
+    string Type = 2;
+    string From = 3;
+}
+
+message GetToolListResponse {
+    ErrCode EC  = 1;
+    repeated pbentity.Tool tools = 2;
+}
+
+message DelToolsRequest {
+    repeated string Ids = 1;
+}
+
+message DelToolsResponse {
+    ErrCode EC = 1;
+}
+
+message CallToolRequest {
+    string Id = 1;
+    bool stream = 2;
+}
+
+message CallToolResponse {
+    ErrCode EC = 1;
+    // object
+    google.protobuf.Any data = 2; //   
+}
+
+
+// dialog --------------------------------------------------------------------------
+message GetDialogListRequest {
+    string UId = 1;
+    string OId = 2;
+    int32 Page = 3;
+    int32 PageSize = 4;
+}
+
+message GetDialogListResponse {
+    ErrCode EC = 1;
+    repeated pbentity.Dialog Dialogs = 2;
+}
+
+message GetDialogDetailRequest {
+    string UId = 1;
+    string OId = 2;
+    string SId = 3;
+}
+
+message GetDialogDetailResponse {
+    ErrCode EC = 1;
+    pbentity.Dialog Dialog = 2;
+}
+
+message AddDialogRequest {
+    string UId = 1;
+    string OId = 2;
+    string Id = 4;
+    string Title = 5;
+}
+
+message AddDialogResponse {
+    ErrCode EC = 1;
+    pbentity.Dialog Dialog = 2;
+}
+
+message DelDialogRequest {
+    string UId = 1;
+    string OId = 2;
+    string SId = 3;
+}
+message DelDialogResponse {
+    ErrCode EC = 1;
+}
+
+message GetDialogMsgListRequest {
+    string UId = 1;
+    string OId = 2;
+    string SId = 3;
+    int32 Page = 4;
+    int32 PageSize = 5;
+}
+
+message GetDialogMsgListResponse {
+    ErrCode EC = 1;
+    repeated pbentity.Message Msgs = 2;
+}
+
+message AddDialogMsgRequest {
+    string UId = 1;
+    string OId = 2;
+    string SId = 3;
+    pbentity.Message Msg = 4;
+}
+
+message AddDialogMsgResponse {
+    ErrCode EC = 1;
+    pbentity.Message Msg = 2;
+}
+
+// profile -----------------------------------------------------------------------------------
+message GetProfileRequest {
+}
+
+message GetProfileResponse {
+    ErrCode EC = 1;
+    pbentity.Uprofile  Profile = 2;
+}
+
+message UpdateProfileRequest {
+    pbentity.Uprofile Profile = 1;
+}
+
+message UpdateProfileResponse {
+    ErrCode EC = 1;
+}
+
+// account --------------------------------------------------------------------------------
+message GetAccountRequest {
+}
+
+message GetAccountResponse {
+    ErrCode EC = 1;
+    pbentity.Account  Account = 2;
+}
+
+
+// store --------------------------------------------------------------------------------
+message PreSignedUrlRequest {
+    string objName = 1;
+}
+
+message PreSignedUrlResponse {
+    ErrCode EC = 1;
+    string  putUrl = 2;
+    string  url = 3;
+}
