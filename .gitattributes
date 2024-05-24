@@ -1,1 +1,4 @@
-* linguist-language=GO
+*.go linguist-language=GO
+*.js linguist-language=JavaScript
+*.dart linguist-language=Dart
+*.ts linguist-language=TypeScript
