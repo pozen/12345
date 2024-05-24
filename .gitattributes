@@ -1,4 +1,10 @@
 *.go linguist-language=GO
 *.js linguist-language=JavaScript
 *.dart linguist-language=Dart
+*.cpp linguist-language=Dart
+*.h linguist-language=Dart
+*.c linguist-language=Dart
+*.java linguist-language=Dart
+*.kt linguist-language=Dart
+*.hpp linguist-language=Dart
 *.ts linguist-language=TypeScript
