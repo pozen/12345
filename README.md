@@ -15,8 +15,12 @@ The main interface :
 And, you can change the theme.  
 ![main](https://store.12345.blue/agent01/nh90zg0tx5ed1e0430daoa43803iurp4_g4.png)  
 
-Mobile.  
-![main](https://store.12345.blue/agent01/nh90zg0tx5ed1etygr7g5wl3g0po1ewl_g6.png)  
+Mobile:  
+![main](https://store.12345.blue/agent01/nh90zg0tx5ed1etygr7g5wl3g0po1ewl_g6.png)    
+
+
+Voice\Image\File:  
+![main](https://store.12345.blue/agent01/nh90zg0tx5ed1icocphppkkeg01kxjq0_Temp/test_34d6f809-4bea-47ed-a779-714533e54a65_1.png)    
 
 
 **2. Tools**:  
