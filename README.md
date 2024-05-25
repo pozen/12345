@@ -3,6 +3,8 @@ An open-source LLM app development platform. The 12345 technology stack consists
 
 ### The fully open-source code is about to be released. Are you looking forward to it? I will as soon as possible to finish the prepare work. Before this, let's take a look at its general features.
 
+### Doing : Docs && Deploy scripts . You can star this project first  ^_^ , thanks!
+
 **1. DailyAI_Tool**:  
 Firstly, you can use it as your daily AI tool. You can quickly integrate with large language models, quickly add bots based on large language models, and conveniently implement various tools through JavaScript scripts.
 
