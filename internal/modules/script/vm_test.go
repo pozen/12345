@@ -17,7 +17,7 @@ func TestHTTP(t *testing.T) {
 
 	core.SetSession(&pb.Session{
 		SId: "da6e3655-fa19-4ea2-aeed-1c8d3a88f0ce",
-		Q:   "那重量呢？",
+		Q:   &pb.Message{Content: "那重量呢？"},
 	})
 
 	core.SetBotSetting(&pb.BotSetting{
@@ -32,7 +32,7 @@ func TestHTTP(t *testing.T) {
 		(function () {
 		  var h = core.NewHttpClient();
 		  h.R.SetHeader("Content-Type", "application/json");
-		  h.R.SetHeader("api-key", "cffab70f7240451e9b965c0e412c01d6");
+		  h.R.SetHeader("api-key", "");
 
 		  // mock lastMsgs
 		  var lastMsgs = [{Role: 3, Content: "地球的周长是大约40075公里。"},{Role: 2, Content: "地球周长是多少呢"}];

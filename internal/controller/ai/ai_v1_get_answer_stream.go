@@ -16,7 +16,7 @@ func (c *ControllerV1) GetAnswerStream(ctx context.Context, req *v1.GetAnswerStr
 	r.Response.Header().Set("Cache-Control", "no-cache")
 	r.Response.Header().Set("Connection", "keep-alive")
 
-	ai.API().GetAnswerStream(ctx, req.Uid, req.Tid, req.Sid, req.Q)
+	ai.API().GetAnswerStream(ctx, req.Tid, req.Sid, &req.Msg)
 
 	return nil, nil
 }

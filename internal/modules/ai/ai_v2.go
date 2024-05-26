@@ -16,8 +16,8 @@ import (
 type sAI2 struct {
 }
 
-func (s *sAI2) GetAnswer(ctx context.Context, uid, tid, sid, q string) (string, interface{}, error) {
-	glog.Debug(ctx, "GetAnswer", uid, tid, sid, q)
+func (s *sAI2) GetAnswer(ctx context.Context, tid, sid string, q *pb.Message) (string, interface{}, error) {
+	glog.Debug(ctx, "GetAnswer", tid, sid, q)
 
 	u := account.API().ParseUserFromCtx(ctx)
 
@@ -38,9 +38,9 @@ func (s *sAI2) GetAnswer(ctx context.Context, uid, tid, sid, q string) (string, 
 	return "", ret, err
 }
 
-func (s *sAI2) GetAnswerStream(ctx context.Context, uid, tid, sid, q string) (string, error) {
+func (s *sAI2) GetAnswerStream(ctx context.Context, tid, sid string, q *pb.Message) (string, error) {
 
-	glog.Debug(ctx, "GetAnswerStream", uid, tid, sid, q)
+	glog.Debug(ctx, "GetAnswerStream", tid, sid, q)
 
 	u := account.API().ParseUserFromCtx(ctx)
 

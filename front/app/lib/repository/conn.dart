@@ -6,8 +6,8 @@ import 'package:dio/dio.dart';
 class Conn {
   static Conn? _instance;
   static final dio = Dio(BaseOptions(
-    baseUrl: 'https://api.12345.blue/',
-    //baseUrl: 'http://127.0.0.1:8000/',
+    //baseUrl: 'https://api.12345.blue/',
+    baseUrl: 'http://127.0.0.1:8000/',
     connectTimeout: Duration(seconds: 120),
     receiveTimeout: Duration(seconds: 120),
     validateStatus: (int? status) {
@@ -27,8 +27,8 @@ class Conn {
   }
 
   static dynamic newGrpcChannel() {
-    //return buildGrpcChannel(host: 'http://127.0.0.1', port: 8082, secure: false);
-    return buildGrpcChannel(host: 'https://gapi.12345.blue');
+    return buildGrpcChannel(host: 'http://127.0.0.1', port: 8082, secure: false);
+    //return buildGrpcChannel(host: 'https://gapi.12345.blue');
     /*return ClientChannel('127.0.0.1',
         port: 8082,
         options: ChannelOptions(

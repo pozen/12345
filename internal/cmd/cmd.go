@@ -56,7 +56,7 @@ var (
 							err = gerror.NewCode(gcode.CodeNotAuthorized)
 							return
 						}
-						glog.Debug(ctx, "token", token)
+						//glog.Debug(ctx, "token", token)
 						// auth here
 						r.SetCtx(gi18n.WithLanguage(r.Context(), "en"))
 						r.Middleware.Next()
@@ -83,7 +83,7 @@ var (
 							return
 						}
 						if u := checkToken(ctx, token); u != nil {
-							r.SetCtx(context.WithValue(r.Context(), "user", u))
+							r.SetCtx(account.API().CtxWithUser(r.Context(), u))
 						} else {
 							err = gerror.NewCode(gcode.CodeNotAuthorized)
 							return

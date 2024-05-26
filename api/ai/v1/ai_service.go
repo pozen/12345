@@ -1,6 +1,8 @@
 package v1
 
 import (
+	"12345/api/pbentity"
+
 	"github.com/gogf/gf/v2/frame/g"
 )
 
@@ -11,12 +13,14 @@ type GetAnswerReq struct {
 	Uid    string
 	Tid    string
 	Q      string `dc:"question"`
+	Msg    pbentity.Message
 }
 
 type GetAnswerRes struct {
 	g.Meta   `mime:"application/json" example:"string"`
 	Ans      string `dc:"answer"`
 	ModelAns interface{}
+	Msg      pbentity.Message
 }
 
 type GetAnswerStreamReq struct {
@@ -25,6 +29,7 @@ type GetAnswerStreamReq struct {
 	Uid    string
 	Tid    string
 	Q      string `dc:"question"`
+	Msg    pbentity.Message
 }
 
 type GetAnswerStreamRes struct {

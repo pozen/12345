@@ -1,12 +1,13 @@
 package ai
 
 import (
+	"12345/api/pbentity"
 	"context"
 )
 
 type IAiAPI interface {
-	GetAnswer(ctx context.Context, uid, tid, sid, q string) (string, interface{}, error)
-	GetAnswerStream(ctx context.Context, uid, tid, sid, q string) (string, error)
+	GetAnswer(ctx context.Context, tid, sid string, q *pbentity.Message) (string, interface{}, error)
+	GetAnswerStream(ctx context.Context, tid, sid string, q *pbentity.Message) (string, error)
 }
 
 var _api IAiAPI

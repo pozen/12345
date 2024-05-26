@@ -55,6 +55,8 @@ class MessageRepository {
         'sid': messages.last.sid,
         'q': messages.last.content,
         'tid': botId,
+        //'msg': messages.last.writeToJsonMap(),
+        'msg':  messageToJson(messages.last),
       },
     );
 
@@ -118,6 +120,8 @@ class MessageRepository {
           'sid': messages.last.sid,
           'q': messages.last.content,
           'tid': botId,
+          //'msg': messages.last.writeToJsonMap(),
+          'msg':  messageToJson(messages.last),
         }).listen(
       (event) {
         Logger().d('Id: ' + event.id!);
@@ -141,6 +145,21 @@ class MessageRepository {
     Logger().d("func end!");
   }
 
+  Map<String, dynamic> messageToJson(Message message) {
+    return {
+      'id': message.id,
+      'uid': message.uid,
+      'sid': message.sid,
+      'r': message.r.toInt(),
+      'content': message.content,
+      't': message.t.toInt(),
+      'url': message.url,
+      'md5': message.md5,
+      'width': message.width.toInt(),
+      'height': message.height.toInt(),
+    };
+  }
+
   @override
   getResponse(
       String botId,
@@ -155,10 +174,11 @@ class MessageRepository {
         "Authorization": Get.find<IdController>().token_.value
       }),
       data: {
-        'uid': '12345',
         'sid': messages.last.sid,
         'q': messages.last.content,
         'tid': botId,
+        //'msg': messages.last,
+        'msg':  messageToJson(messages.last),
       },
     );
 
