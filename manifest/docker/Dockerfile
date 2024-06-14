@@ -12,6 +12,10 @@ ADD . .
 
 RUN ls -alh ./
 
+RUN ls -alh /release
+
+RUN pwd
+
 RUN GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -ldflags="-s -w" -o dotblue main.go
 
 RUN chmod +x $WORKDIR/dotblue
