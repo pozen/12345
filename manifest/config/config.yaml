@@ -1,0 +1,43 @@
+server:
+  address:     ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level : "all"
+  stdout: true
+
+#database:
+#  default:
+#    link:    "pgsql:user:password@tcp(localhost:5432)/test1"
+#    debug:   true
+
+db:
+  debug: true
+  type: "pg"
+  dsn: "host=localhost user=xxxx password=xxxx dbname=test1 port=26257 sslmode=disable TimeZone=Asia/Shanghai"
+
+store:
+  endpoint: "xxxx"
+  accessKey: "xxxx"
+  secretKey: "xxxxxxx"
+  bucket: "agent01"
+  scheme: "https"
+
+casdoor:
+  endpoint: "xxxxxxxx"
+  clientId: "xxxxxxxxxxxx"
+  clientSecret: "xxxxxxx"
+  organizationName: "built-in"
+  applicationName: "agent"
+  certificate: |
+    -----BEGIN CERTIFICATE-----
+    -----END CERTIFICATE-----
+
+smtp:
+  host: "xxxxx"
+  port: 465
+  username: "xxxxx"
+  password: "xxxxx"
+  sender: "xxxxxxx"
+  debug: false
