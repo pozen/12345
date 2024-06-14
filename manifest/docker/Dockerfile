@@ -1,4 +1,4 @@
-FROM FROM golang:alpine as build
+FROM golang:alpine as build
 
 ###############################################################################
 #                                build
