@@ -24,8 +24,7 @@ FROM scratch as prod
 # 在build阶段复制可执行的go二进制文件app
 COPY --from=build /release/dotblue /
 # 在build阶段复制配置文件
-
-COPY ./manifest/config /data/config/
+COPY --from=build /release/manifest/config /data/config/
 
 # 启动服务
 CMD ["/dotblue", "--gf.gcfg.file", "/data/config/config.yaml"]
