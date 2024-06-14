@@ -25,7 +25,7 @@ FROM scratch as prod
 COPY --from=build /release/dotblue /
 # 在build阶段复制配置文件
 
-COPY --from=build /release/manifest/config /data/
+COPY manifest/config /data/config/
 
 # 启动服务
 CMD ["/dotblue", "--gf.gcfg.file", "/data/config/config.yaml"]
