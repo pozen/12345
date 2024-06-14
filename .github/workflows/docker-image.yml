@@ -14,10 +14,28 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push
-      uses: docker/build-push-action@v4
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: 12345dotblue/dotblue
+        tags: |
+          type=raw,value=latest,enable={{is_default_branch}}
+          type=ref,event=tag
+          type=ref,event=branch
+
+    - name: Build and push streampark
+      uses: docker/build-push-action@v3
       with:
         context: .
-        file: ./Dockerfile
+        file: manifest/docker/Dockerfile
+        platforms: linux/amd64,linux/arm64/v8
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}:${{ github.ref }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+
+
+
+
+
